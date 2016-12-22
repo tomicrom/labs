@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/nuevo.css">
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+  	
+
+
+	<title>Labs de Innovación</title>
+</head>
+<body>
+	<header class="cd-header">
+		<h1>LABS DE INNOVACIÓN</h1>
+	</header>
+
+	<main class="cd-main-content">
+		<div class="cd-tab-filter-wrapper">
+			<div class="cd-tab-filter">
+				<ul class="cd-filters">
+					<li class="placeholder"> 
+						<a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
+					</li> 
+					<li class="filter"><a class="selected" href="#0" data-type="all">Todos</a></li>
+					<li class="filter" data-filter=".Local"><a href="#0" data-type="Local">Local</a></li>
+					<li class="filter" data-filter=".Regional"><a href="#0" data-type="Regional">Regional</a></li>
+					<li class="filter" data-filter=".Nacional"><a href="#0" data-type="Nacional">Nacional</a></li>
+
+				</ul> <!-- cd-filters -->
+			
+			</div>
+			 <!-- cd-tab-filter -->
+		</div> <!-- cd-tab-filter-wrapper -->
+
+		<section class="cd-gallery">
+			<ul id="contenido">
+				
+			</ul>
+			<div class="cd-fail-message">No results found</div>
+		</section> <!-- cd-gallery -->
+
+		<div class="cd-filter">
+			<form>
+				<div class="cd-filter-block">
+					<h4>Buscar</h4>
+					
+					<div class="cd-filter-content">
+						<input type="search" placeholder="Probá Argentina...">
+					</div> <!-- cd-filter-content -->
+				</div> <!-- cd-filter-block -->
+
+				<div class="cd-filter-block">
+					<h4>Tipo</h4>
+
+					<ul class="cd-filter-content cd-filters list">
+						<li>
+							<input class="filter" data-filter=".Local" type="checkbox" id="checkbox1">
+			    			<label class="checkbox-label" for="Local">Local</label>
+						</li>
+
+						<li>
+							<input class="filter" data-filter=".Regional" type="checkbox" id="Regional">
+							<label class="checkbox-label" for="Regional">Regional</label>
+						</li>
+
+						<li>
+							<input class="filter" data-filter=".Nacional" type="checkbox" id="Nacional">
+							<label class="checkbox-label" for="Nacional">Nacional</label>
+						</li>
+					</ul> <!-- cd-filter-content -->
+				</div> <!-- cd-filter-block -->
+
+				 <!-- cd-filter-block -->
+			</form>
+
+			<a href="#0" class="cd-close">Close</a>
+		</div> <!-- cd-filter -->
+
+		<a href="#0" class="cd-filter-trigger">BUSCAR</a>
+	</main> <!-- cd-main-content -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script id="nuestra-plantilla" type="text/x-handlebars-template">
+<ul>
+{{#each this}}
+    <li class="mix color-1 check1 radio2 option3 {{pais}} {{tipo}}">
+  			<div><img src="{{img}}" alt="{{nombre}}"></div>
+  			<div class="contenido">
+  			<h3><a href="{{url}}">{{nombre}}</a></h3>
+  			<h5>{{ciudad}}, {{pais}} - {{tipo}}</h5>
+  			<h6><a href="mailto:{{mail}}">{{mail}}</a></h6>
+  			</div>
+  		</li>
+{{/each}}
+</ul>
+</script>
+<script type="text/javascript">
+	var fuente = $('#nuestra-plantilla').html();
+	var plantilla = Handlebars.compile(fuente);
+
+	var datos = [
+	        {
+	      "nombre": "Laboratorio para la Ciudad",
+	      "tipo": "Local",
+	      "ciudad": "DF",
+	      "pais": "Mexico",
+	      "contacto": null,
+	      "mail": "laboratorio@labcd.mx",
+	      "url": "http://labcd.mx/",
+	      "img": "http://www.agu.cdmx.gob.mx/imagenes/logo_lab.jpg\r"
+	    },
+	    {
+	      "nombre": "New Urban Mechanics",
+	      "tipo": "Local",
+	      "ciudad": "Boston",
+	      "pais": "Estados Unidos",
+	      "contacto": null,
+	      "mail": "newurbanmechanics@boston.gov",
+	      "url": "http://newurbanmechanics.org/",
+	      "img": "http://i.imgur.com/vaqkolP.png\r"
+	    },
+	    {
+	      "nombre": "MindLab",
+	      "tipo": "Nacional",
+	      "ciudad": "Copenhague",
+	      "pais": "Dinamarca",
+	      "contacto": null,
+	      "mail": "info@mind-lab.dk",
+	      "url": "http://mind-lab.dk/",
+	      "img": "http://i.imgur.com/GYL9sFI.png\r"
+	    },
+	    {
+	      "nombre": "iZone",
+	      "tipo": "Local",
+	      "ciudad": "Nueva York",
+	      "pais": "Estados Unidos",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://izonenyc.org/",
+	      "img": "https://static1.squarespace.com/static/55a82215e4b0be775f656ce5/t/55d4757de4b0cb42737a2b95/1439987069676/\r"
+	    },
+	    {
+	      "nombre": "The Studio",
+	      "tipo": "Local",
+	      "ciudad": "Dublin",
+	      "pais": "Irlanda",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "https://dccstudio.wordpress.com/about/",
+	      "img": "http://i.imgur.com/nZ9tDjX.png\r"
+	    },
+	    {
+	      "nombre": "SFMOCI",
+	      "tipo": "Local",
+	      "ciudad": "San Francisco",
+	      "pais": "Estados Unidos",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.innovation.sfgov.org/",
+	      "img": "http://i.imgur.com/cmtBeJS.png\r"
+	    },
+	    {
+	      "nombre": "SILK",
+	      "tipo": "Local",
+	      "ciudad": "Kent",
+	      "pais": "Reino Unido",
+	      "contacto": null,
+	      "mail": "silk.team@kent.gov.uk",
+	      "url": "http://socialinnovation.typepad.com/silk/",
+	      "img": "http://i.imgur.com/x2E7onO.png\r"
+	    },
+	    {
+	      "nombre": "Santalab",
+	      "tipo": "Regional",
+	      "ciudad": "Santa Fe",
+	      "pais": "Argentina",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "https://www.santafe.gob.ar/index.php/web/content/view/full/203591/(subtema)/93686",
+	      "img": "http://i.imgur.com/51oYD8N.png\r"
+	    },
+	    {
+	      "nombre": "CMDlab",
+	      "tipo": "Local",
+	      "ciudad": "Buenos Aires",
+	      "pais": "Argentina",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.buenosaires.gob.ar/innovacion/distritoseconomicos/distritodediseno/cmd/cmdlab",
+	      "img": "http://i.imgur.com/8FFAu8a.png\r"
+	    },
+	    {
+	      "nombre": "Urban Lab",
+	      "tipo": "Local",
+	      "ciudad": "Barcelona",
+	      "pais": "España",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.22barcelona.com/content/view/698/897/lang,es/",
+	      "img": "http://i.imgur.com/EWXzZvo.png\r"
+	    },
+	    {
+	      "nombre": "Centro de Innovación Social",
+	      "tipo": "Nacional",
+	      "ciudad": "Bogotá",
+	      "pais": "Colombia",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.prosperidad.gov.co/n/Paginas/20110919a-Centro-Innovacion-Social-Gobierno-Colombiano.aspx",
+	      "img": "http://i.imgur.com/JK0OR34.png\r"
+	    },
+	    {
+	      "nombre": "Behavioural Insights Team",
+	      "tipo": "Nacional",
+	      "ciudad": "Londres",
+	      "pais": "Reino Unido",
+	      "contacto": null,
+	      "mail": "info@behaviouralinsights.co.uk",
+	      "url": "http://www.behaviouralinsights.co.uk/",
+	      "img": "http://i.imgur.com/AOCy8Bm.png\r"
+	    },
+	    {
+	      "nombre": "Centre for Public Service Innovation",
+	      "tipo": "Nacional",
+	      "ciudad": "Pretoria",
+	      "pais": "Sudafrica",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.cpsi.co.za/",
+	      "img": "http://i.imgur.com/A90AB6D.png\r"
+	    },
+	    {
+	      "nombre": "Fonds d’expérimentation pour la jeunesse",
+	      "tipo": "Nacional",
+	      "ciudad": "Paris",
+	      "pais": "Francia",
+	      "contacto": null,
+	      "mail": "info@cpsi.co.za",
+	      "url": "http://www.experimentation.jeunes.gouv.fr/",
+	      "img": "http://i.imgur.com/J4OmR0b.png\r"
+	    },
+	    {
+	      "nombre": "Investing in Innovation Fund",
+	      "tipo": "Nacional",
+	      "ciudad": "Washington",
+	      "pais": "Estados Unidos",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www2.ed.gov/programs/innovation/index.html",
+	      "img": "http://i.imgur.com/PRUKxot.png\r"
+	    },
+	    {
+	      "nombre": "La 27e Région",
+	      "tipo": "Regional",
+	      "ciudad": "Paris",
+	      "pais": "Francia",
+	      "contacto": null,
+	      "mail": "infos@la27eregion.fr",
+	      "url": "http://www.la27eregion.fr/",
+	      "img": "http://i.imgur.com/eFSIfv2.png\r"
+	    },
+	    {
+	      "nombre": "Nesta Innovation Lab",
+	      "tipo": "Nacional",
+	      "ciudad": "Londres",
+	      "pais": "Reino Unido",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.nesta.org.uk/innovation-lab",
+	      "img": "http://i.imgur.com/Ons640t.png\r"
+	    },
+	    {
+	      "nombre": "New Orleans Innovation Delivery Team",
+	      "tipo": "Local",
+	      "ciudad": "New Orleans",
+	      "pais": "Estados Unidos",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://theiteams.org/case-studies/new-orleans-innovation-delivery-team",
+	      "img": "http://i.imgur.com/MCEu3ac.png\r"
+	    },
+	    {
+	      "nombre": "NYC Center for Economic Opportunity",
+	      "tipo": "Local",
+	      "ciudad": "Nueva York",
+	      "pais": "Estados Unidos",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.nyc.gov/html/ceo/html/home/home.shtml",
+	      "img": "http://i.imgur.com/o0Ek0HM.png\r"
+	    },
+	    {
+	      "nombre": "Mexico Digital",
+	      "tipo": "Nacional",
+	      "ciudad": "DF",
+	      "pais": "Mexico",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.gob.mx/mexicodigital/",
+	      "img": "http://i.imgur.com/SawRvWN.png\r"
+	    },
+	    {
+	      "nombre": "Performance Management & Delivery Unit (PEMANDU)",
+	      "tipo": "Nacional",
+	      "ciudad": "Kuala Lumpur",
+	      "pais": "Malasia",
+	      "contacto": null,
+	      "mail": "enquiry@pemandu.gov.my",
+	      "url": "https://www.pemandu.gov.my/",
+	      "img": "http://i.imgur.com/AZSUlnv.png\r"
+	    },
+	    {
+	      "nombre": "PS21 Office",
+	      "tipo": "Nacional",
+	      "ciudad": "Singapur",
+	      "pais": "Singapur",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.psd.gov.sg/what-we-do/ps21-building-a-future-ready-public-service",
+	      "img": "http://i.imgur.com/HR8XCtW.png\r"
+	    },
+	    {
+	      "nombre": "Seoul Innovation Bureau",
+	      "tipo": "Local",
+	      "ciudad": "Seul",
+	      "pais": "Corea",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.theiteams.org/case-studies/seoul-innovation-bureau",
+	      "img": "http://i.imgur.com/r68AYYF.png\r"
+	    },
+	    {
+	      "nombre": "The Finnish Innovation Fund Sitra",
+	      "tipo": "Nacional",
+	      "ciudad": "Helsinki",
+	      "pais": "Finlandia",
+	      "contacto": null,
+	      "mail": "sitra@sitra.fi",
+	      "url": "http://www.sitra.fi/",
+	      "img": "http://i.imgur.com/vo7iMKH.png\r"
+	    },
+	    {
+	      "nombre": "The Australian Centre for Social Innovation",
+	      "tipo": "Regional",
+	      "ciudad": "Adelaide",
+	      "pais": "Australia",
+	      "contacto": null,
+	      "mail": "info@tacsi.org.au",
+	      "url": "http://tacsi.org.au/",
+	      "img": "http://i.imgur.com/MMJR8HI.png\r"
+	    },
+	    {
+	      "nombre": "VINNOVA",
+	      "tipo": "Nacional",
+	      "ciudad": "Estocolmo",
+	      "pais": "Suecia",
+	      "contacto": null,
+	      "mail": null,
+	      "url": "http://www.vinnova.se/en/",
+	      "img": "http://i.imgur.com/l4hqzGr.png"
+	    }
+	    ];
+	var html = plantilla(datos);
+
+	$('#contenido').html(html);
+
+</script>
+</body>
+</html>
